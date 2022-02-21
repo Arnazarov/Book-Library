@@ -7,12 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.transition.TransitionManager;
 
 import com.bumptech.glide.Glide;
 
@@ -46,6 +48,20 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
             Toast.makeText(mContext, books.get(position).getName() + " Selected", Toast.LENGTH_SHORT).show();
         });
 
+        holder.tv_authorText.setText(books.get(position).getAuthor());
+        holder.tv_shortDesc.setText(books.get(position).getShortDesc());
+
+        if (books.get(position).isExpanded()) {
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.rl_expanded.setVisibility(View.VISIBLE);
+            holder.downArrow.setVisibility(View.GONE);
+        }
+        else{
+            TransitionManager.beginDelayedTransition(holder.parent);
+            holder.rl_expanded.setVisibility(View.GONE);
+            holder.downArrow.setVisibility(View.VISIBLE);
+        }
+
     }
 
     @Override
@@ -61,14 +77,34 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private CardView parent;
-        private ImageView img_book;
-        private TextView tv_bookName;
+        private ImageView img_book, downArrow, upArrow;
+        private TextView tv_bookName, tv_authorText, tv_shortDesc;
+        private RelativeLayout rl_expanded;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parent = itemView.findViewById(R.id.parent);
             img_book = itemView.findViewById(R.id.img_book);
             tv_bookName = itemView.findViewById(R.id.tv_bookName);
+            downArrow = itemView.findViewById(R.id.btn_downArrow);
+            upArrow = itemView.findViewById(R.id.btn_upArrow);
+            rl_expanded = itemView.findViewById(R.id.rl_expanded);
+            tv_authorText = itemView.findViewById(R.id.tv_authorText);
+            tv_shortDesc = itemView.findViewById(R.id.tv_shortDesc);
+
+            downArrow.setOnClickListener(view -> {
+                Book book = books.get(getAdapterPosition());
+                book.setExpanded(!book.isExpanded());
+                notifyItemChanged(getAdapterPosition());
+            });
+
+            upArrow.setOnClickListener(view -> {
+                Book book = books.get(getAdapterPosition());
+                book.setExpanded(!book.isExpanded());
+                notifyItemChanged(getAdapterPosition());
+            });
+
+
         }
     }
 }

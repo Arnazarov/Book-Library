@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.159" />
+        <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/drawable/ic_downArrow_background.xml" value="0.159" />
         <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/drawable/ic_downArrow_foreground.xml" value="0.2375" />
+        <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/drawable/ic_upArrow_background.xml" value="0.159" />
+        <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/drawable/ic_upArrow_foreground.xml" value="0.159" />
         <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/layout/activity_all_books.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Public/AndroidStudioProjects/BookLibrary/app/src/main/res/layout/list_item_book.xml" value="0.25416666666666665" />
