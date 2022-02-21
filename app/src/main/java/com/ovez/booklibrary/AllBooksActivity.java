@@ -26,10 +26,7 @@ public class AllBooksActivity extends AppCompatActivity {
         bookRecView.setAdapter(adapter);
         bookRecView.setLayoutManager(new LinearLayoutManager(this));
 
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book(1, "Sapiens", "Yuval N. Harari", 584, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1427068429l/23346740.jpg", "A Summer Reading Pick for President Barack Obama, Bill Gates, and Mark Zuckerberg", "From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”"));
 
-        books.add(new Book(2, "Homo Deus", "Yuval N. Harari", 632, "https://images-na.ssl-images-amazon.com/images/I/71PuIuX-64L.jpg", "A Summer Reading Pick for President Barack Obama, Bill Gates, and Mark Zuckerberg", "From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”"));
-        adapter.setBooks(books);
+        adapter.setBooks(Utils.getInstance().getAllBooks());
     }
 }

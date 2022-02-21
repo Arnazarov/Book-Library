@@ -65,8 +65,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="Book Name:"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
@@ -74,8 +75,9 @@
         android:id="@+id/tv_pages"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="584"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/label_pages"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/label_pages" />
@@ -85,8 +87,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="Pages: "
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/label_author" />
 
@@ -95,14 +98,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/label_shortDesc">
+
         <TextView
             android:id="@+id/tv_longDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/baumans"
             android:text="Long Desc here"
-             />
+            android:textStyle="italic" />
 
     </ScrollView>
 
@@ -110,8 +114,9 @@
         android:id="@+id/tv_book"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="Sapiens"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/label_bookName"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/label_bookName" />
@@ -120,8 +125,9 @@
         android:id="@+id/tv_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="Harari"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="@+id/label_author"
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/label_author" />
@@ -131,8 +137,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="Author:"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/label_bookName" />
 
@@ -141,8 +148,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/baumans"
         android:text="Description:"
+        android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/label_pages" />
 

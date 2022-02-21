@@ -2,6 +2,7 @@ package com.ovez.booklibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -35,8 +36,19 @@ public class BookActivity extends AppCompatActivity {
 
         //TODO: Get data from recycler view in here
         Book book = new Book(1, "Sapiens", "Yuval N. Harari", 584, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1427068429l/23346740.jpg", "A Summer Reading Pick for President Barack Obama, Bill Gates, and Mark Zuckerberg", "From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”");
+
+        Intent intent = getIntent();
+
+        if (intent != null) {
+            int bookId = intent.getIntExtra("bookId", -1);
+            if (bookId != -1) {
+                Book incomingBook = Utils.getInstance().getBookById(bookId);
+                if (incomingBook != null)
+                    setData(book);
+           }
+        }
         
-        setData(book);
+
 
 
 

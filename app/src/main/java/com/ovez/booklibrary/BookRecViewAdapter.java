@@ -27,7 +27,7 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
         this.mContext = mContext;
     }
 
-    private ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Book> books;
     private Context mContext;
 
     @NonNull
@@ -47,6 +47,7 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
 
         holder.parent.setOnClickListener(view -> {
             Intent intent = new Intent(mContext, BookActivity.class);
+            intent.putExtra("bookId", books.get(position).getId());
             mContext.startActivity(intent);
         });
 
@@ -68,7 +69,7 @@ public class BookRecViewAdapter extends RecyclerView.Adapter<BookRecViewAdapter.
 
     @Override
     public int getItemCount() {
-        return books.size();
+        return this.books.size();
     }
 
     public void setBooks(ArrayList<Book> books) {
