@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookLibrary">
         <activity
+            android:name=".AlreadyReadBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".BookActivity"
             android:exported="false" />
         <activity

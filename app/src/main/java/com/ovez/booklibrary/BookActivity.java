@@ -7,8 +7,12 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 public class BookActivity extends AppCompatActivity {
 
@@ -44,12 +48,49 @@ public class BookActivity extends AppCompatActivity {
             if (bookId != -1) {
                 Book incomingBook = Utils.getInstance().getBookById(bookId);
                 if (incomingBook != null)
-                    setData(book);
-           }
+                    setData(incomingBook);
+
+                handleAlreadyRead(incomingBook);
+                handleWantToRead(incomingBook);
+                handleCurrentlyReading(incomingBook);
+            }
         }
-        
 
+    }
 
+    private void handleCurrentlyReading(Book incomingBook) {
+    }
+
+    private void handleWantToRead(Book incomingBook) {
+    }
+
+    /**
+     * Enable and Disable button,
+     * Add the book to Already Read Book ArrayList
+     *
+     * @param incomingBook
+     */
+    private void handleAlreadyRead(Book incomingBook) {
+        ArrayList<Book> alreadyReadBooks = Utils.getInstance().getAlreadyReadBooks();
+
+        boolean exists = false;
+
+        for (Book book : alreadyReadBooks) {
+            if (book.getId() == incomingBook.getId())
+                exists = true;
+        }
+
+        if (exists)
+            btn_addToAlreadyRead.setEnabled(false);
+        else {
+            btn_addToAlreadyRead.setOnClickListener(view -> {
+                if (Utils.getInstance().addToAlreadyRead(incomingBook)) {
+                    Toast.makeText(this, "Book Added", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookActivity.this, AlreadyReadBookActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
 
     }
