@@ -60,9 +60,56 @@ public class BookActivity extends AppCompatActivity {
     }
 
     private void handleFavourites(Book incomingBook) {
+        ArrayList<Book> favouriteBooks = Utils.getInstance().getFavouriteBooks();
+
+        boolean exists = false;
+
+        for (Book book : favouriteBooks) {
+            if (book.getId() == incomingBook.getId())
+                exists = true;
+        }
+
+        if (exists)
+            btn_addToFavourite.setEnabled(false);
+        else {
+            btn_addToFavourite.setOnClickListener(view -> {
+                if (Utils.getInstance().addToFavouriteBooks(incomingBook)) {
+                    Toast.makeText(this, "Book Added", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookActivity.this, FavouriteBookActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
+
     private void handleCurrentlyReading(Book incomingBook) {
+        ArrayList<Book> currentlyReadingBooks = Utils.getInstance().getCurrReadingBooks();
+
+        boolean exists = false;
+
+        for (Book book : currentlyReadingBooks) {
+            if (book.getId() == incomingBook.getId())
+                exists = true;
+        }
+
+        if (exists)
+            btn_addToCurrentlyReading.setEnabled(false);
+        else {
+            btn_addToCurrentlyReading.setOnClickListener(view -> {
+                if (Utils.getInstance().addToCurrentlyReadingBooks(incomingBook)) {
+                    Toast.makeText(this, "Book Added", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookActivity.this, CurrentlyReadingBookActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     private void handleWantToRead(Book incomingBook) {
