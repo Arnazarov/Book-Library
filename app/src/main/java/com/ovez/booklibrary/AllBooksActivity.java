@@ -1,14 +1,10 @@
 package com.ovez.booklibrary;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-
-import java.sql.Array;
-import java.util.ArrayList;
 
 public class AllBooksActivity extends AppCompatActivity {
 
@@ -21,6 +17,8 @@ public class AllBooksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_books);
 
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
         adapter = new BookRecViewAdapter(this, ALL_BOOKS_ACTIVITY);
         bookRecView = findViewById(R.id.booksRecView);
 
@@ -29,5 +27,11 @@ public class AllBooksActivity extends AppCompatActivity {
 
 
         adapter.setBooks(Utils.getInstance().getAllBooks());
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 }
