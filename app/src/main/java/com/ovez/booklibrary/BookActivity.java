@@ -53,15 +53,39 @@ public class BookActivity extends AppCompatActivity {
                 handleAlreadyRead(incomingBook);
                 handleWantToRead(incomingBook);
                 handleCurrentlyReading(incomingBook);
+                handleFavourites(incomingBook);
             }
         }
 
+    }
+
+    private void handleFavourites(Book incomingBook) {
     }
 
     private void handleCurrentlyReading(Book incomingBook) {
     }
 
     private void handleWantToRead(Book incomingBook) {
+        ArrayList<Book> wantToReadBooks = Utils.getInstance().getWantToReadBooks();
+
+        boolean exists = false;
+
+        for (Book book : wantToReadBooks) {
+            if (book.getId() == incomingBook.getId())
+                exists = true;
+        }
+
+        if (exists)
+            btn_addToWantToRead.setEnabled(false);
+        else {
+            btn_addToWantToRead.setOnClickListener(view -> {
+                if (Utils.getInstance().addToWantToRead(incomingBook)) {
+                    Toast.makeText(this, "Book Added", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BookActivity.this, WantToReadActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
     }
 
     /**
