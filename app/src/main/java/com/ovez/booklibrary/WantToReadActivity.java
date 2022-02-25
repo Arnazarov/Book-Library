@@ -30,6 +30,6 @@ public class WantToReadActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter.setBooks(Utils.getWantToReadBooks());
+        adapter.setBooks(Utils.getInstance(WantToReadActivity.this).getWantToReadBooks());
     }
 }

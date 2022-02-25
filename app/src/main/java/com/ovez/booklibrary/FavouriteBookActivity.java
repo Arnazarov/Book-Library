@@ -29,6 +29,6 @@ public class FavouriteBookActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter.setBooks(Utils.getFavouriteBooks());
+        adapter.setBooks(Utils.getInstance(FavouriteBookActivity.this).getFavouriteBooks());
     }
 }
