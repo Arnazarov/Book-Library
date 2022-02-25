@@ -17,8 +17,6 @@ public class AllBooksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_books);
 
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-
         adapter = new BookRecViewAdapter(this, ALL_BOOKS_ACTIVITY);
         bookRecView = findViewById(R.id.booksRecView);
 
@@ -29,9 +27,4 @@ public class AllBooksActivity extends AppCompatActivity {
         adapter.setBooks(Utils.getInstance().getAllBooks());
     }
 
-    @Override
-    public void finish() {
-        super.finish();
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    }
 }
