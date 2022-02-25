@@ -29,6 +29,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        btn_currentlyReading.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, CurrentlyReadingBookActivity.class);
+            startActivity(intent);
+        });
+
+        btn_wantToRead.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, WantToReadActivity.class);
+            startActivity(intent);
+        });
+
+        btn_favourite.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, FavouriteBookActivity.class);
+            startActivity(intent);
+        });
+
         btn_about.setOnClickListener(view -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
             builder.setTitle(getString(R.string.app_name));
