@@ -177,18 +177,78 @@ public class Utils {
     }
 
     public boolean deleteFromAlreadyRead(Book book) {
-        return alreadyReadBooks.remove(book);
+        ArrayList<Book> alreadyReadBooks = getAlreadyReadBooks();
+        if (alreadyReadBooks != null) {
+            for (Book b : alreadyReadBooks) {
+                if (b.getId() == book.getId()) {
+                    if (alreadyReadBooks.remove(b)) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Gson gson = new Gson();
+                        editor.remove(ALREADY_READ_BOOKS_KEY);
+                        editor.putString(ALREADY_READ_BOOKS_KEY, gson.toJson(alreadyReadBooks));
+                        editor.commit();
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public boolean deleteFromCurrentlyReading(Book book) {
-        return currReadingBooks.remove(book);
+        ArrayList<Book> currReadingBooks = getCurrReadingBooks();
+        if (currReadingBooks != null) {
+            for (Book b : currReadingBooks) {
+                if (b.getId() == book.getId()) {
+                    if (currReadingBooks.remove(b)) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Gson gson = new Gson();
+                        editor.remove(CURRENTLY_READING_BOOKS_KEY);
+                        editor.putString(CURRENTLY_READING_BOOKS_KEY, gson.toJson(currReadingBooks));
+                        editor.commit();
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public boolean deleteFromWishlist(Book book) {
-        return wantToReadBooks.remove(book);
+        ArrayList<Book> wantToReadBooks = getWantToReadBooks();
+        if (wantToReadBooks != null) {
+            for (Book b : wantToReadBooks) {
+                if (b.getId() == book.getId()) {
+                    if (wantToReadBooks.remove(b)) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Gson gson = new Gson();
+                        editor.remove(WANT_TO_READ_BOOKS_KEY);
+                        editor.putString(WANT_TO_READ_BOOKS_KEY, gson.toJson(wantToReadBooks));
+                        editor.commit();
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     public boolean deleteFromFavourites(Book book) {
-        return favouriteBooks.remove(book);
+        ArrayList<Book> favouriteBooks = getFavouriteBooks();
+        if (favouriteBooks != null) {
+            for (Book b : favouriteBooks) {
+                if (b.getId() == book.getId()) {
+                    if (favouriteBooks.remove(b)) {
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        Gson gson = new Gson();
+                        editor.remove(FAVOURITE_BOOKS_KEY);
+                        editor.putString(FAVOURITE_BOOKS_KEY, gson.toJson(favouriteBooks));
+                        editor.commit();
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 }
