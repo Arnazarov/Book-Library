@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class AllBooksActivity extends AppCompatActivity {
 
+    public static final String ALL_BOOKS_ACTIVITY = "AllBooksActivity";
     private RecyclerView bookRecView;
     private BookRecViewAdapter adapter;
 
@@ -20,7 +21,7 @@ public class AllBooksActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_books);
 
-        adapter = new BookRecViewAdapter(this);
+        adapter = new BookRecViewAdapter(this, ALL_BOOKS_ACTIVITY);
         bookRecView = findViewById(R.id.booksRecView);
 
         bookRecView.setAdapter(adapter);

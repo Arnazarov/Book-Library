@@ -6,7 +6,8 @@
     android:id="@+id/parent"
     app:cardCornerRadius="7dp"
     app:cardElevation="7dp"
-    android:layout_margin="5dp">
+    android:layout_margin="10dp"
+    >
 
     <RelativeLayout
         android:layout_width="200dp"
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rl_collapsed"
             android:id="@+id/rl_expanded"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -81,6 +82,18 @@
                 android:layout_below="@id/tv_shortDesc"
                 android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_up_arrow_foreground" />
+
+            <TextView
+                android:id="@+id/btn_deleteBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_shortDesc"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="7dp"
+                android:layout_toStartOf="@+id/btn_upArrow"
+                android:text="Delete"
+                android:textColor="@color/red"
+                android:visibility="visible" />
 
         </RelativeLayout>
 

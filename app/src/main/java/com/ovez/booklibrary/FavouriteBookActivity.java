@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 public class FavouriteBookActivity extends AppCompatActivity {
+    public static final String FAVOURITE_BOOK_ACTIVITY = "FavouriteBookActivity";
     private RecyclerView recyclerView;
     private BookRecViewAdapter adapter;
 
@@ -24,7 +25,7 @@ public class FavouriteBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favourite_book);
 
         recyclerView = findViewById(R.id.favouriteBooksRecView);
-        adapter = new BookRecViewAdapter(this);
+        adapter = new BookRecViewAdapter(this, FAVOURITE_BOOK_ACTIVITY);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

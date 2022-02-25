@@ -37,7 +37,7 @@ public class Utils {
         allBooks.add(new Book(2, "Homo Deus", "Yuval N. Harari", 632, "https://images-na.ssl-images-amazon.com/images/I/71PuIuX-64L.jpg", "A Summer Reading Pick for President Barack Obama, Bill Gates, and Mark Zuckerberg", "From a renowned historian comes a groundbreaking narrative of humanity’s creation and evolution—a #1 international bestseller—that explores the ways in which biology and history have defined us and enhanced our understanding of what it means to be “human.”"));
     }
 
-    public static  Utils getInstance() {
+    public static Utils getInstance() {
         if (instance == null)
             instance = new Utils();
         return instance;
@@ -86,5 +86,21 @@ public class Utils {
 
     public boolean addToCurrentlyReadingBooks(Book book) {
         return currReadingBooks.add(book);
+    }
+
+    public boolean deleteFromAlreadyRead(Book book) {
+        return alreadyReadBooks.remove(book);
+    }
+
+    public boolean deleteFromCurrentlyReading(Book book) {
+        return currReadingBooks.remove(book);
+    }
+
+    public boolean deleteFromWishlist(Book book) {
+        return wantToReadBooks.remove(book);
+    }
+
+    public boolean deleteFromFavourites(Book book) {
+        return favouriteBooks.remove(book);
     }
 }

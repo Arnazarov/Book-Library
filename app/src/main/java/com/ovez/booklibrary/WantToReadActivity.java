@@ -9,6 +9,7 @@ import android.os.Bundle;
 
 public class WantToReadActivity extends AppCompatActivity {
 
+    public static final String WANT_TO_READ_ACTIVITY = "WantToReadActivity";
     private RecyclerView recyclerView;
     private BookRecViewAdapter adapter;
 
@@ -25,7 +26,7 @@ public class WantToReadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_want_to_read);
 
         recyclerView = findViewById(R.id.wantToReadBooksRecView);
-        adapter = new BookRecViewAdapter(this);
+        adapter = new BookRecViewAdapter(this, WANT_TO_READ_ACTIVITY);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
