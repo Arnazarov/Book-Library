@@ -6,4 +6,5 @@
     <string name="activity_currently_reading_book">Books You Currently Reading</string>
     <string name="activity_favourite_book">Your Favourite Books</string>
     <string name="activity_want_to_read">Your Wish List</string>
+    <string name="activity_website">Github</string>
 </resources>
